@@ -37,7 +37,9 @@
         "istream": "cpp",
         "ranges": "cpp",
         "tuple": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "arm_math.h": "c",
+        "color_map.h": "c"
     },
     "C_Cpp.default.cppStandard": "",
     "workbench.colorCustomizations": {

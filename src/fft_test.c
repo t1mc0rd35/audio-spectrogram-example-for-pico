@@ -10,12 +10,12 @@
 
 #include "pico/stdlib.h"
 
-#include "pico/pdm_microphone.h"
-#include "pico/st7789.h"
+// #include "pico/pdm_microphone.h"
+// #include "pico/st7789.h"
 
 #include "arm_math.h"
 
-#include "color_map.h"
+// #include "color_map.h"
 
 // constants
 #define SAMPLE_RATE       16000
@@ -29,37 +29,7 @@
 #define FFT_BINS_SKIP     5
 #define FFT_MAG_MAX       2000.0
 
-// lcd configuration
-const struct st7789_config lcd_config = {
-    .spi      = PICO_DEFAULT_SPI_INSTANCE,
-    .gpio_din = PICO_DEFAULT_SPI_TX_PIN,
-    .gpio_clk = PICO_DEFAULT_SPI_SCK_PIN,
-    .gpio_cs  = PICO_DEFAULT_SPI_CSN_PIN,
-    .gpio_dc  = 20,
-    .gpio_rst = 21,
-    .gpio_bl  = 22,
-};
 
-// microphone configuration
-const struct pdm_microphone_config pdm_config = {
-    // GPIO pin for the PDM DAT signal
-    .gpio_data = 2,
-
-    // GPIO pin for the PDM CLK signal
-    .gpio_clk = 3,
-
-    // PIO instance to use
-    .pio = pio0,
-
-    // PIO State Machine instance to use
-    .pio_sm = 0,
-
-    // sample rate in Hz
-    .sample_rate = SAMPLE_RATE,
-
-    // number of samples to buffer
-    .sample_buffer_size = INPUT_BUFFER_SIZE,
-};
 
 q15_t capture_buffer_q15[INPUT_BUFFER_SIZE];
 volatile int new_samples_captured = 0;
